@@ -1,0 +1,16 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">First</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let data of this.historylist">
+      <tr>
+      
+        <td>{{data.data}}</td>
+        <button (click)="deleteresult(data.data)">delete</button>
+        
+      </tr>
+     
+    </tbody>
+  </table>

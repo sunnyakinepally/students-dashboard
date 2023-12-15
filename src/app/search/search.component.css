@@ -1,0 +1,42 @@
+.button {
+  background-color: #042baa;
+  color: white;
+  padding: 4px 2px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 60%;
+}
+
+img {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+}
+
+.fa-heart {
+  color: #ccc;
+}
+
+.fa-heart.active {
+  color: black;
+}
+.like-button {
+  font-size: 1rem;
+  padding: 5px 10px;
+  color: #585858;
+}
+
+.liked {
+  font-weight: bold;
+  color: #1565c0;
+}
+.heart-icon {
+  font-size: 24px;
+ }
+ 
+ .heart-container {
+  display: inline-block;
+  margin: 10px;
+ }
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");

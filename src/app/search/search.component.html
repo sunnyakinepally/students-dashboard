@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <form [formGroup]="search" (ngSubmit)="getinput()">
+        <div class="input-group">
+            <input type="text" class="form-control" value="" placeholder="Search..." formControlName="input_data"> <br>
+            <button type="button"  class="btn bg-transparent"
+                style="margin-left: -40px; z-index: 100;">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        <button type="submit" class="button btn-primary" [disabled]="search.invalid">Serach</button>
+
+    </form>
+
+    <select [(ngModel)]="choosen" (ngModelChange)="sort()">
+      <option default>Sort by</option>
+      <option>All</option>
+      <option>favourite</option>
+    </select>
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">link</th>
+            <th scope="col">image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of result  ">
+            <td>{{item.id}}</td>
+            <td><img src="{{item.avatar_url}}" /> </td>
+            <td><a data-toggle="modal" data-target="#exampleModal" href="{{item.login}}"
+                  (click)="user(item)">{{item.login}}</a>
+
+            </td>
+            <td>{{item.node_id}}</td>
+            <td><a href="{{item.organizations_url}}">{{item.organizations_url}}</a></td>
+            <td>
+                <div id="wishlist">
+                    <i (click)="removed(item)" style="color: red; cursor: pointer;" *ngIf="item.heart"
+                        class="fa fa-heart" aria-hidden="true"></i>
+                    <i (click)="onToggle(item)" *ngIf="!item.heart" style="color: black ; cursor: pointer;"
+                        class="fa fa-heart" aria-hidden="true"></i>
+                </div>
+            </td>
+
+
+        </tr>
+        
+        </tbody>
+      </table>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content" >
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{singleuser.login}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <img style="width: 100px;" src="{{singleuser.avatar_url}}" />
+                      </div>
+                      <div class="col">
+                        {{singleuser.node_id}}
+                        {{singleuser.url}}
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

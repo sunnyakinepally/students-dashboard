@@ -1,0 +1,118 @@
+{
+  "students": [
+    {
+      "id": "jlrzkavk4",
+      "name": "sunny",
+      "mobile": "9542269422",
+      "pass": "Sunny"
+    },
+    {
+      "id": "d5rcdn6i6",
+      "name": "neel",
+      "mobile": "9988776666",
+      "pass": "neelzz"
+    },
+    {
+      "id": "p8jkivi1y",
+      "name": "varma",
+      "mobile": "007",
+      "pass": "worth"
+    },
+    {
+      "id": "crpaue2uu",
+      "name": "sunny",
+      "mobile": "9542269422",
+      "pass": "Sunny"
+    },
+    {
+      "id": "k8cg4y24l",
+      "name": "revanth",
+      "mobile": "123",
+      "pass": "rev"
+    },
+    {
+      "id": "lku3njmhk",
+      "name": "neel",
+      "mobile": "1122",
+      "pass": "neeli"
+    },
+    {
+      "id": "pnndop7xf",
+      "name": "sai",
+      "mobile": "97972",
+      "pass": "sai"
+    },
+    {
+      "id": "71gucbda4",
+      "name": "lallu",
+      "mobile": "97972",
+      "pass": "lallu"
+    },
+    {
+      "id": "1uqk6i9mi",
+      "name": "revnth",
+      "mobile": "123",
+      "pass": "rev"
+    },
+    {
+      "id": "9bom7u7r5",
+      "name": "naresh",
+      "mobile": "456",
+      "pass": "678"
+    },
+    {
+      "id": "ea2highm3",
+      "name": "neel",
+      "mobile": 11,
+      "pass": "neel"
+    },
+    {
+      "id": "j7pacj40a",
+      "name": "shivani",
+      "mobile": 990,
+      "pass": "shivani"
+    },
+    {
+      "id": "297mrqkws",
+      "name": "karthik",
+      "mobile": 5555,
+      "pass": "karthik"
+    },
+    {
+      "id": "bpq7d6pdi",
+      "name": "likki",
+      "mobile": 320,
+      "password": "maddi"
+    },
+    {
+      "id": "qgexoibfm",
+      "name": "likki",
+      "mobile": 420,
+      "password": "maddi"
+    },
+    {
+      "id": "esoyy8gpg",
+      "name": "likki",
+      "mobile": 420,
+      "password": "maddi"
+    },
+    {
+      "id": "kf7cixi2x",
+      "name": "lallu",
+      "mobile": 9542297972,
+      "password": "sai"
+    },
+    {
+      "id": "6yuw1ks1b",
+      "name": "lallu",
+      "mobile": 97972,
+      "password": "sai"
+    },
+    {
+      "id": "m5jsuksx0",
+      "name": "sai",
+      "mobile": 9542297972,
+      "password": "lallu"
+    }
+  ]
+}

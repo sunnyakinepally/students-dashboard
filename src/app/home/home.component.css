@@ -1,0 +1,27 @@
+body{
+    background-color: black;
+}
+table{
+    width: 60em;
+    margin: auto;
+    text-align: center;
+    margin-top: 20vh;
+}
+tr:hover td{
+    background-color:  #808080;
+    transition: ease-in-out;
+}
+input{
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+}
+.modal-content{
+    background-color: black;
+}
+label{
+    color: white;
+}
+.modal-header{
+color: white;
+}
