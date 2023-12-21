@@ -15,7 +15,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## SQL Database
 
-Create Coresponding Database and Table using local database
+Create Coresponding `SQL Database` and `Table` using local database
 
 ## Code scaffolding
 
