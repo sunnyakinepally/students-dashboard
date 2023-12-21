@@ -5,9 +5,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ![Alt text](https://github.com/sunnyakinepally/students-dashboard/blob/main/src/assets/login.PNG)
 
+## Start Node Server
+
+Run node server.js to run node server
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## SQL Database
+
+Create Coresponding Database and Table using local database
 
 ## Code scaffolding
 
