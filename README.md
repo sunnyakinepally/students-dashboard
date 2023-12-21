@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Start Node Server
 
-Run node server.js to run node server
+Run `node server.js` to run node server
 
 ## Development server
 
