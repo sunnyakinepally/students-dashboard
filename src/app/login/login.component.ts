@@ -21,7 +21,7 @@ export class LoginComponent {
     this.initLoginForm();
     this.UserService.getStudents().subscribe((res: any) => {
       this.allusers = res
-      console.log('allusers', this.allusers)
+      // console.log('allusers', this.allusers)
     })
   }
 

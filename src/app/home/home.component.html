@@ -44,6 +44,18 @@
             <label class="form-label" for="form3Example4cg">Password</label>
           </div>
 
+          <div class="form-outline mb-4">
+            <input type="text" id="form3Example4" class="form-control form-control-lg"
+            placeholder="Enter password" formControlName="amount" />
+          <label class="form-label" for="form3Example4cg">amount</label>
+        </div>
+        
+        <div class="form-outline mb-4">
+          <input type="text" id="form3Example4" class="form-control form-control-lg"
+          placeholder="Enter password" formControlName="grade" />
+        <label class="form-label" for="form3Example4cg">Grade</label>
+      </div>
+
         </form>
       </div>
       <div class="modal-footer">
@@ -81,6 +93,16 @@
                 placeholder="Enter mobile number" formControlName="mobile" />
               <label class="form-label" for="form3Example4">Mobile</label>
             </div>
+            <div class="form-outline mb-3">
+              <input type="number" id="form3Example4" class="form-control form-control-lg"
+                placeholder="Enter mobile number" formControlName="amount" />
+              <label class="form-label" for="form3Example4">Amount</label>
+            </div>
+            <div class="form-outline mb-3">
+              <input type="text" id="form3Example4" class="form-control form-control-lg"
+                placeholder="Enter mobile number" formControlName="grade" />
+              <label class="form-label" for="form3Example4">Grade</label>
+            </div>
           <div class="form-outline mb-4">
               <input type="text" id="form3Example4" class="form-control form-control-lg"
               placeholder="Enter password" formControlName="password" />
@@ -103,6 +125,8 @@
         <th scope="col">Id</th>
         <th scope="col">Name</th>
         <th scope="col">Mobile</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Grade</th>
         <th scope="col">Action</th>
         <th scope="col">Edit</th>
       </tr>
@@ -112,6 +136,8 @@
         <td scope="row">{{item.id}}</td>
         <td>{{item.name}}</td>
         <td>{{item.mobile}}</td>
+        <td>{{item.amount}}</td>
+        <td>{{item.grade}}</td>
         <!-- <td>{{item.mobile}}</td> -->
         <!-- <td><button class="btn btn-danger" (click)="deletestudent(item)">Delete</button></td> -->
         <td><i class="material-icons" style="font-size:30px;color:red;cursor: pointer;" (click)="deletestudent(item)">delete</i></td>

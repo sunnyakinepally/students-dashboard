@@ -14,7 +14,7 @@ const routes: Routes = [
 {path:'',component:LoginComponent},
 {path:'signup',component:SignupComponent},
 {path:'search',component:SearchComponent},
-{path:'History', component:HistoryComponent},
+{path:'history', component:HistoryComponent},
 {path:'job',component:JobdisplayComponent}
 
 

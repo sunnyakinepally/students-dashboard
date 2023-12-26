@@ -14,21 +14,10 @@ export class JobdisplayComponent {
   constructor(private userservice:UserService, private routing:Router){}
 
   ngOnInit(): void {
-    console.log("Before fetchproducts()");
-    this.fetchproducts();
+
   }
   
 
-  fetchproducts(){
-    this.userservice.fetchproducts().subscribe((res:any)=>{
-      // console.log("data from API",res)
-      this.image=res.image;
-      this.data=res;
-      console.log(this.data);
-
-    })
-
-  }
   logout(){
     this.routing.navigate([''])
     localStorage.removeItem('details')

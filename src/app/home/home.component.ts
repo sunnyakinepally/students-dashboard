@@ -30,7 +30,9 @@ addinit(){
     // id:["", [Validators.required]],
     name:["",[Validators.required]],
     mobile:["",[Validators.required]],
-    password:["",[Validators.required]]
+    password:["",[Validators.required]],
+    amount:["",[Validators.required]],
+    grade:["",[Validators.required]]
   })
 }
 
@@ -43,6 +45,8 @@ this.userservice.getStudents().subscribe((res:any)=>{
     name:filter[0].name,
     mobile: filter[0].mobile,
     password: filter[0].password,
+    amount:filter[0].amount,
+    grade:filter[0].grade
   })
 })
 
@@ -56,6 +60,8 @@ this.update = this.fb.group({
   name:item.name,
   mobile: item.mobile,
   password:item.password,
+  amount:item.amount,
+  grade:item.grade
 })
 }
 
@@ -64,7 +70,9 @@ initform(){
     id:["", [Validators.required]],
     name:["",[Validators.required]],
     mobile:["",[Validators.required]],
-    password:["",[Validators.required]]
+    password:["",[Validators.required]],
+    amount:["",[Validators.required]],
+    grade:["",[Validators.required]]
   })
 }
 

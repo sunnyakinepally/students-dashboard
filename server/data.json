@@ -113,6 +113,33 @@
       "name": "sai",
       "mobile": 9542297972,
       "password": "lallu"
+    },
+    {
+      "id": "4o9x44o5j",
+      "name": "likki",
+      "mobile": 0,
+      "password": "likki"
+    },
+    {
+      "id": "7vkfcajdu",
+      "name": "sunny",
+      "mobile": 12345,
+      "password": "sunny",
+      "amount": 300
+    },
+    {
+      "id": "ogx3js9tm",
+      "name": "varma",
+      "mobile": 420,
+      "password": "varma",
+      "amount": 120,
+      "grade": "A"
+    },
+    {
+      "id": "endhe1tmo",
+      "name": "niranjan",
+      "mobile": 12345,
+      "password": "varma"
     }
   ]
 }

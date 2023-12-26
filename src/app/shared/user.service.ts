@@ -32,13 +32,7 @@ profileupdate(profileupdate:any): Observable<any>{
     return !! localStorage.getItem("details")
   }
 
-  fetchjobs(){
-    return this.http.get('https://api.github.com/projects/columns/cards/CARD_ID')
-  }
 
-  fetchproducts(){
-    return this.http.get('https://fakestoreapi.com/products')
-  }
 
   getallusers(){
     return this.http.get('https://api.github.com/users')

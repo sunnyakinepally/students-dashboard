@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'server')));
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "Sunny@1433",
+  password: "Sunny#123",
   database:'sunnydb'
 });
 
@@ -89,9 +89,11 @@ app.post('/api/putStudentsData', (req, res) => {
       name: req.body.name,
       mobile: req.body.mobile,
       password: req.body.password,
+      amount:req.body.amount,
+      grade:req.body.grade
     };
-const sql='INSERT INTO students (id,name,mobile,password) VALUES(?,?,?,?)';
-con.query(sql,[newStudentdata.id,newStudentdata.name,newStudentdata.mobile,newStudentdata.password],(err,result)=>{
+const sql='INSERT INTO students (id,name,mobile,password,amount,grade) VALUES(?,?,?,?,?,?)';
+con.query(sql,[newStudentdata.id,newStudentdata.name,newStudentdata.mobile,newStudentdata.password,newStudentdata.amount,newStudentdata.grade],(err,result)=>{
   if (err) {
     console.error('Error inserting data into the database:', err);
     return;
@@ -160,8 +162,10 @@ app.post('/api/profileupdate',(req,res)=>{
   const updatedname=req.body.name
   const updatedpassword=req.body.password
   const updatedmobie=req.body.mobile
-  var sql="UPDATE students set name=?,password=?,mobile=? where id=? "
-  con.query(sql,[updatedname,updatedpassword,updatedmobie,updatedid],(err,result)=>{
+  const updatedamount=req.body.amount
+  const updatedgrade=req.body.grade
+  var sql="UPDATE students set name=?,password=?,mobile=?,amount=?,grade=? where id=? "
+  con.query(sql,[updatedname,updatedpassword,updatedmobie,updatedamount,updatedgrade,updatedid],(err,result)=>{
     if(err) throw err;
     console.log('updated row',result.affectedRows)
   })
