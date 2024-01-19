@@ -57,6 +57,8 @@ export class LoginComponent {
      
         this.token = token
         localStorage.setItem('Token', this.token)
+        localStorage.setItem('details',JSON.stringify(filtered))
+
         this.routing.navigate(['/home'])
      
     })
