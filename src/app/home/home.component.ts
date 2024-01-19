@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { UserService } from '../shared/user.service';
 import { Router } from '@angular/router';
 import { FormBuilder,Validators } from '@angular/forms';
 import { __values } from 'tslib';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { filter } from 'rxjs';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  
 })
 export class HomeComponent {
   data: any;
@@ -14,6 +18,13 @@ export class HomeComponent {
   logeduser: any;
   user: any;
   add: any;
+  selectedLevel:string = '';
+  filtered_data: any;
+  serachresult:any=[];
+  searchvalue: any;
+  
+  
+
 
   constructor(private userservice:UserService, private routing:Router, private fb:FormBuilder){}
   ngOnInit(): void {
@@ -122,8 +133,59 @@ updateprofile(){
   window.location.reload()
 }
 
+checkbygrade(){
+  // console.log('selected', this.selectedLevel)
+switch(this.selectedLevel){
+  case 'All': this.displaystudents()
+  break;
+  case  'Show Above A':
+    // const filtered_by_grade=this.data.map((res:any)=>res.grade=='A+')
+    this.filtered_data=this.data.filter((res:any)=>res.grade=='A+' || res.grade=='A++' || res.grade=='A')
+    this.data=this.filtered_data
+    // this.displaystudents()
+    console.log('result for A',this.filtered_data)
+
+    
+    break;
+    
+  case 'Show B or Above':
+     this.filtered_data=this.data.filter((res:any)=>res.grade=='B' || res.grade=='A+' || res.grade=='A++' || res.grade=='A')
+    this.data=this.filtered_data
+    console.log('result for A',this.filtered_data)
+    break;
+
+    case 'Failed':
+      this.filtered_data=this.data.filter((res:any)=>res.grade=='fail')
+      this.data=this.filtered_data
+      console.log('result of failed',this.filtered_data)
+      break;
+
+}
+
+}
+
+
+search(data:any){
+  console.log('search data',data)
+  if(!data){
+    return this.displaystudents()
+  }else{
+    this.serachresult=this.data.filter(
+      (result:any) => result?.name.toLowerCase().includes(data.toLowerCase())
+    );
+    // console.log('searched data is',this.serachresult)
+    this.data=this.serachresult
+  }
+
+}
+
+clear(data:any){
+  data.value=''
+  this.displaystudents()
+}
+
   logout(){
-    localStorage.removeItem('details');
+    localStorage.removeItem('Token');
     this.routing.navigate(['']);
   }
 }

@@ -5,7 +5,7 @@ table{
     width: 60em;
     margin: auto;
     text-align: center;
-    margin-top: 20vh;
+    margin-top: 10vh;
 }
 tr:hover td{
     background-color:  #808080;
@@ -24,4 +24,12 @@ label{
 }
 .modal-header{
 color: white;
+}
+
+select{
+    padding: 5px;
+    border-radius: 2vh;
+    background-color: goldenrod;
+    color: white;
+    font-weight: bold;
 }

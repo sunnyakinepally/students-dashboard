@@ -140,6 +140,44 @@
       "name": "niranjan",
       "mobile": 12345,
       "password": "varma"
+    },
+    {
+      "id": "lan93ao8g",
+      "name": "chakri",
+      "mobile": 117,
+      "password": "chakri",
+      "amount": 2000,
+      "grade": "A"
+    },
+    {
+      "id": "bkmh8mc8w",
+      "name": "",
+      "mobile": -39,
+      "password": "",
+      "amount": "",
+      "grade": ""
+    },
+    {
+      "id": "0zju5h3g8",
+      "name": "sunny",
+      "mobile": 9542269422,
+      "password": "sunny"
+    },
+    {
+      "id": "r94plu0u4",
+      "name": "bob",
+      "mobile": 2222,
+      "password": "bob",
+      "amount": 50000,
+      "grade": "fail"
+    },
+    {
+      "id": "luvaxdsnl",
+      "name": "Mike",
+      "mobile": 420,
+      "password": "mike",
+      "amount": 123,
+      "grade": "A++"
     }
   ]
 }

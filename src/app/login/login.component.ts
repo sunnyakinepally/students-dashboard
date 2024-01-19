@@ -14,6 +14,7 @@ export class LoginComponent {
   localdata: any;
   fethed: any;
   allusers: any;
+  token: any;
 
   constructor(private fb: FormBuilder, private routing: Router, private UserService: UserService) { }
 
@@ -33,35 +34,33 @@ export class LoginComponent {
   }
 
   submit() {
-    // this.localdata=localStorage.getItem('signupdetails')
-    // this.fethed=JSON.parse(this.localdata)
-    // const filtered = this.fethed.filter((value: any) => value.mobile == this.login.value.mobile && value.pass==this.login.value.pass);
-    // if(filtered.length !=0){
-    //   alert('login success')
+
+    // console.log('user', this.login.value.pass)
+    // const user = this.login.value
+    // console.log('user mobile', user.mobile)
+    // console.log('filtered',filtered)
+    // if (filtered.length != 0) {
+    // localStorage.setItem('details',JSON.stringify(filtered))
+    //   alert('login sucess')
     //   this.routing.navigate(['/home'])
-    // console.log("loging details",filtered)
-    // localStorage.setItem("details",JSON.stringify(filtered) )
-
-
-    // }else {
-    // console.log("loging details",filtered)
-    //   alert('please register')
     // }
-    // console.log("login details",this.fethed.mobile)
-    console.log('user', this.login.value.pass)
+    // else {
+    //   alert('Please enter valid credentials or Register first');
+    //   window.location.reload()
+    // }
     const user = this.login.value
-    console.log('user mobile', user.mobile)
     const filtered = this.allusers.students.filter((value: any) => value.mobile == user.mobile && value.password == user.pass);
-    console.log('filtered',filtered)
-    if (filtered.length != 0) {
-    localStorage.setItem('details',JSON.stringify(filtered))
-      alert('login sucess')
-      this.routing.navigate(['/home'])
-    }
-    else {
-      alert('Please enter valid credentials or Register first');
-      window.location.reload()
-    }
+    if(filtered.length===0){
+      alert('please enter valid credentilas')
+      }
+    this.UserService.loggedin(user).subscribe((token: string) => {
+     
+        this.token = token
+        localStorage.setItem('Token', this.token)
+        this.routing.navigate(['/home'])
+     
+    })
+    
   }
 
 

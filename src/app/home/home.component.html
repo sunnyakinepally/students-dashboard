@@ -9,7 +9,9 @@
 <body>
   <button class="btn btn-danger float-right" (click)="logout()">Logout</button> 
 <button type="button" class="btn btn-info " data-toggle="modal" data-target="#exampleModal" (click)="updateinit()">Edit Profile</button>
-<button class="btn btn-success  justify-content-center" data-toggle="modal" data-target="#Add" style="margin-left: 40rem;" (click)="addinit()">Add </button> 
+<button class="btn btn-success  justify-content-center" data-toggle="modal" data-target="#Add" style="margin-left: 40rem;" (click)="addinit()">Add New </button> 
+
+
 
 <!-- Update modal  -->
 
@@ -119,6 +121,29 @@
   </div>
 </div>
 
+
+
+<!-- <input type="text" placeholder="Filter by city" #filter>
+ -->
+
+<div class="d-flex ml-5 mt-5" style="width: 50vh;">
+  <input type="text" class="form-control " style="background-color: aliceblue;color: black;" placeholder="Search..." #filter> <br>
+  <button type="button"  (click)="clear(filter)"  class="btn bg-transparent"
+      style="margin-left: -40px; z-index: 100;">
+      <i class="fa fa-times"></i>
+  </button>
+  <button class="primary" type="button" (click)="search(filter.value)">Search</button>
+  
+</div>
+<div class="d-flex ml-5 mt-2">
+  <select class="selectpicker"   [(ngModel)]="selectedLevel" (ngModelChange)="checkbygrade()">
+   <option value="" disabled selected>check by grade</option>
+   <option value="All">All</option>
+   <option  value="Show Above A">Show Above A</option>
+   <option value="Show B or Above">Show B or Above</option>
+   <option value="Failed">Failed</option>
+  </select>
+ </div>
 <table class="table table-dark " >
     <thead>
       <tr class="tr">
