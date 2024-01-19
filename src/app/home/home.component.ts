@@ -185,6 +185,7 @@ clear(data:any){
 }
 
   logout(){
+    localStorage.removeItem('details');
     localStorage.removeItem('Token');
     this.routing.navigate(['']);
   }
