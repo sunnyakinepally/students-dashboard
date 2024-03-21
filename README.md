@@ -1,6 +1,12 @@
 # Dashboard
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+##Project Demo
+
+
+https://github.com/sunnyakinepally/students-dashboard/assets/117161148/0dabf841-ad50-45bf-b6b0-200427371546
+
+
 ## Login ScreenShot
 
 ![Alt text](https://github.com/sunnyakinepally/students-dashboard/blob/main/src/assets/login.PNG)
