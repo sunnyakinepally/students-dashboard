@@ -3,6 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
 ##Project Demo
 
+Project is basic Admin pannel setup as Tution management used local database with Node js ustom API's front-end used Angular
 
 https://github.com/sunnyakinepally/students-dashboard/assets/117161148/0dabf841-ad50-45bf-b6b0-200427371546
 
