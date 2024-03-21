@@ -3,11 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
 ## Login ScreenShot
 
-![Alt text](https://github.com/sunnyakinepally/students-dashb
-
-https://github.com/sunnyakinepally/students-dashboard/assets/117161148/dd717c39-ed64-43a7-b003-a664282a51c9
-
-oard/blob/main/src/assets/login.PNG)
+![Alt text](https://github.com/sunnyakinepally/students-dashboard/blob/main/src/assets/login.PNG)
 
 ## Start Node Server
 
