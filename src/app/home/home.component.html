@@ -6,10 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<body>
-  <button class="btn btn-danger float-right" (click)="logout()">Logout</button> 
-<button type="button" class="btn btn-info " data-toggle="modal" data-target="#exampleModal" (click)="updateinit()">Edit Profile</button>
-<button class="btn btn-success  justify-content-center" data-toggle="modal" data-target="#Add" style="margin-left: 40rem;" (click)="addinit()">Add New </button> 
+<body class="main-content">
+
+
+
+  <button type="button" class="btn btn-primary "  (click)="toggleDrawer()">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </button>
 
 
 
@@ -126,15 +129,21 @@
 <!-- <input type="text" placeholder="Filter by city" #filter>
  -->
 
-<div class="d-flex ml-5 mt-5" style="width: 50vh;">
-  <input type="text" class="form-control " style="background-color: aliceblue;color: black;" placeholder="Search..." #filter> <br>
-  <button type="button"  (click)="clear(filter)"  class="btn bg-transparent"
-      style="margin-left: -40px; z-index: 100;">
-      <i class="fa fa-times"></i>
-  </button>
-  <button class="primary" type="button" (click)="search(filter.value)">Search</button>
-  
+ <div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div class="input-group">
+        <input type="text" class="form-control" style="background-color: aliceblue; color: black;" placeholder="Search..." #filter>
+        <button type="button" (click)="clear(filter)" class="btn btn-outline-secondary">
+          <i class="fa fa-times"></i>
+        </button>
+        <button class="btn btn-primary" type="button" (click)="search(filter.value)">Search</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+
 <div class="d-flex ml-5 mt-2">
   <select class="selectpicker"   [(ngModel)]="selectedLevel" (ngModelChange)="checkbygrade()">
    <option value="" disabled selected>check by grade</option>
@@ -157,7 +166,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of data">
+      <tr *ngFor="let item of data" >
         <td scope="row">{{item.id}}</td>
         <td>{{item.name}}</td>
         <td>{{item.mobile}}</td>
@@ -171,6 +180,27 @@
     
     </tbody>
   </table>
+
+  <mat-drawer-container class="example-container" [ngClass]="{ 'open': isDrawerOpen }">
+    <button type="button" class="btn btn-primary float-right" (click)="toggleDrawer()">
+      <i class="fa fa-close" aria-hidden="true"></i>
+    </button><br>
+    <div>
+      <label class="menu-item" data-toggle="modal" data-target="#exampleModal" (click)="updateinit()">Edit Profile</label>
+      <label class="menu-item" data-toggle="modal" data-target="#Add"  (click)="addinit()">Add New</label>
+      <!-- <button type="button" class="btn btn-info " data-toggle="modal" data-target="#exampleModal" (click)="updateinit()">Edit Profile</button><br>
+      <button class="btn btn-success" data-toggle="modal" data-target="#Add" style="margin-top: 2vh;" (click)="addinit()">Add New </button> 
+     -->
+
+    </div>
+    <!-- <div class="col-md-6 d-flex justify-content-end">
+      <button class="btn btn-info">End Button</button>
+    </div> -->
+    <label  class=" btn-logout" (click)="logout()">Logout</label>
+
+  </mat-drawer-container>
+
+
 </body>
 </html>
 

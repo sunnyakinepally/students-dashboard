@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,8 @@ export class UserService {
   private Url = 'http://localhost:3000/api';
   constructor(private http: HttpClient,) { }
   private apiUrl = 'https://api.github.com';
+  private usersubjectdata=new BehaviorSubject<any>(null)
+  userData = this.usersubjectdata.asObservable();
 
   getStudents(): Observable<any> {
     return this.http.get('http://localhost:3000/api/getStudentData');
@@ -31,9 +33,16 @@ export class UserService {
   loggedin(data:any): Observable<any>{
     return this.http.post('http://localhost:3000/api/login',data,{responseType:'text'})
   }
-    logged(){
-    return !!localStorage.getItem("Token")
-    }
+
+  senduserdata(data:any){
+    // console.log('holding here',data)
+    this.usersubjectdata.next(data)
+  }
+
+  
+    // logged(){
+    // return !!localStorage.getItem("Token")
+    // }
 
 
   getallusers() {
@@ -58,7 +67,6 @@ export class UserService {
 
     return this.http.get('https://api.github.com/search/users', { params: queryParams })
   }
-
 
 
 }

@@ -29,7 +29,59 @@ color: white;
 select{
     padding: 5px;
     border-radius: 2vh;
-    background-color: goldenrod;
+    background-color:darkblue;
     color: white;
     font-weight: bold;
 }
+.example-container {
+    position: absolute;
+    top: 0;
+    left: -300px; /* Move the drawer container off-screen by default */
+    width: 300px; /* Set width to match the sidebar width */
+    transition: left 0.3s ease; /* Add transition for smooth animation */
+    background-color: black;
+    color: white;
+    height: 105vh
+  }
+  .btn-logout {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: red;
+  }
+  
+  
+  .example-container.open {
+    left: 0; /* Move the container back to the viewport when opened */
+  }
+  
+  .example-sidenav {
+    width: 100%; /* Set width to 100% of the container */
+    background-color: #333; /* Example background color */
+    color: white; /* Example text color */
+  }
+  
+  .example-sidenav-content {
+    padding: 20px; /* Add padding for content */
+  }
+  .example-container.open .main-content {
+    margin-left: 300px; /* Adjust margin to move main content aside when drawer is open */
+  }
+  .menu-item{
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    border: 1px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 5vh;
+  }
+ 

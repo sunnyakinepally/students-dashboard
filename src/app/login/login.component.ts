@@ -3,6 +3,7 @@ import { Validators, FormGroup, FormBuilder, } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
 import { json } from 'express';
+import { filter } from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -49,21 +50,25 @@ export class LoginComponent {
     //   window.location.reload()
     // }
     const user = this.login.value
-    const filtered = this.allusers.students.filter((value: any) => value.mobile == user.mobile && value.password == user.pass);
+    let filtered = this.allusers.students.filter((value: any) => value.mobile == user.mobile && value.password == user.pass);
+    let filtered1:any=[]
+    const{mobile,id} = filtered[0]
+    filtered1.push({mobile,id})
+    // console.log('user data',filtered1)
     if(filtered.length===0){
       alert('please enter valid credentilas')
       }
     this.UserService.loggedin(user).subscribe((token: string) => {
-     
         this.token = token
-        localStorage.setItem('Token', this.token)
-        localStorage.setItem('details',JSON.stringify(filtered))
-
+        // console.log(token)
+        sessionStorage.setItem('Token', JSON.stringify({'token':this.token}))
+        localStorage.setItem('details',JSON.stringify(filtered1))
         this.routing.navigate(['/home'])
-     
+        this.UserService.senduserdata(this.token);
+
     })
     
-  }
+  } 
 
 
 }

@@ -42,15 +42,12 @@ app.post('/api/login',(req,res)=>{
       if(filtered.length>0){
       const name=filtered[0].name
         const token=jwt.sign({name},secretKey,{expiresIn:'5sec'})
-        // console.log('token generate',token)
+        console.log('token generate',token.expiresIn)
         res.send(token)
       }
       else {
         res.status(401).json({ message: 'Invalid credentials' });
       }
-      
-     
-
     });
   }
   catch(err){
@@ -172,7 +169,7 @@ app.post('/api/deletestudent', (req, res) => {
           con.query(sql, [deletedId], (err, result) => {
             if (err) throw err;
             console.log("Number of records deleted: " + result.affectedRows);
-          });
+          })
         }
       }
 });

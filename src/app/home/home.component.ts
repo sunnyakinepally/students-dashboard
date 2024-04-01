@@ -22,18 +22,26 @@ export class HomeComponent {
   filtered_data: any;
   serachresult:any=[];
   searchvalue: any;
+  showFiller = false;
+  isDrawerOpen = false;
+  originalarray: []=[];
   
   
 
 
   constructor(private userservice:UserService, private routing:Router, private fb:FormBuilder){}
   ngOnInit(): void {
+   
 this.displaystudents();
 this.initform();
 this.addinit();
 this.logeduser=localStorage.getItem("details")
 this.user=JSON.parse((this.logeduser) || 's')
-console.log('logeduser',this.user)
+// console.log('logeduser',this.user)
+  }
+
+  toggleDrawer() {
+    this.isDrawerOpen = !this.isDrawerOpen;
   }
 
 addinit(){
@@ -50,7 +58,7 @@ addinit(){
 updateinit(){
 this.userservice.getStudents().subscribe((res:any)=>{
   const filter =res.students.filter((value:any)=>value.id==this.user[0].id)
-  console.log('filterd user for profile',filter[0].name)
+  // console.log('filterd user for profile',filter[0].name)
   this.update = this.fb.group({
     id:filter[0].id,
     name:filter[0].name,
@@ -65,7 +73,7 @@ this.userservice.getStudents().subscribe((res:any)=>{
 }
 
 updatemember(item:any){
-console.log('member',item.id)
+// console.log('member',item.id)
 this.update = this.fb.group({
   id:item.id,
   name:item.name,
@@ -87,86 +95,80 @@ initform(){
   })
 }
 
-  displaystudents(){
+ displaystudents(){
     this.userservice.getStudents().subscribe((res:any)=>{
 this.data=res.students
-console.log('displaying students',this.data)
+// console.log('displaying students',this.data)
 
     const filtered = this.data.filter((value:any) => value.id == this.user[0].id);
     if(filtered.length>0){
   const indextoremove=res.students.findIndex((value:any)=>value.id==this.user[0].id);
-  console.log('removed',indextoremove)
+  // console.log('removed',indextoremove)
   res.students.splice(indextoremove,1)
-
     }
     const data=res.students
-    console.log('after',data)
+    // console.log('after',data)
     this.data=data
-
-
-    })
-
-  }
+    this.originalarray=this.data
+})
+}
 
   addstudent(){
     this.userservice.poststudents(this.add.value).subscribe((res:any)=>{
-      console.log('new student',this.add.value)
+      // console.log('new student',this.add.value)
     })
     window.location.reload();
   }
 
   deletestudent(item:any){
-this.userservice.deletestudents(item).subscribe((res:any)=>{
-      console.log('deleted item',res)
- })
-    window.location.reload()
+    if(confirm('Are you sure? want to delete '+(item.name))){
+      this.userservice.deletestudents(item).subscribe((res:any)=>{
+        console.log('deleted item',res)
+        // this.displaystudents()
+   })
+   setTimeout(()=>{
+    this.displaystudents()
+  },10)
+    }
+    // window.location.reload()
   }
 
   
 
 updateprofile(){
-  // console.log('updated details',this.update.value)
-  alert('Update Success')
+ if(confirm('Are you sure ? want update')){
   this.userservice.profileupdate(this.update.value).subscribe((res:any)=>{
-
-  })
-  window.location.reload()
+ })
+  setTimeout(()=>{
+    this.displaystudents()
+  },10)
+ }
+ 
+  // window.location.reload()
 }
 
-checkbygrade(){
-  // console.log('selected', this.selectedLevel)
-switch(this.selectedLevel){
-  case 'All': this.displaystudents()
-  break;
-  case  'Show Above A':
-    // const filtered_by_grade=this.data.map((res:any)=>res.grade=='A+')
-    this.filtered_data=this.data.filter((res:any)=>res.grade=='A+' || res.grade=='A++' || res.grade=='A')
-    this.data=this.filtered_data
-    // this.displaystudents()
-    console.log('result for A',this.filtered_data)
+checkbygrade() {
+  // Reset data to original unfiltered data
+  this.data = [...this.originalarray];
 
-    
-    break;
-    
-  case 'Show B or Above':
-     this.filtered_data=this.data.filter((res:any)=>res.grade=='B' || res.grade=='A+' || res.grade=='A++' || res.grade=='A')
-    this.data=this.filtered_data
-    console.log('result for A',this.filtered_data)
-    break;
-
-    case 'Failed':
-      this.filtered_data=this.data.filter((res:any)=>res.grade=='fail')
-      this.data=this.filtered_data
-      console.log('result of failed',this.filtered_data)
+  // Apply the selected filter
+  switch (this.selectedLevel) {
+    case 'Show Above A':
+      this.data = this.data.filter((res: any) => res.grade === 'A+' || res.grade === 'A++' || res.grade === 'A');
       break;
-
+    case 'Show B or Above':
+      this.data = this.data.filter((res: any) => res.grade === 'B' || res.grade === 'A+' || res.grade === 'A++' || res.grade === 'A');
+      break;
+    case 'Failed':
+      this.data = this.data.filter((res: any) => res.grade === 'Fail' || res.grade==='fail');
+      break;
+  }
 }
 
-}
 
 
 search(data:any){
-  console.log('search data',data)
+  // console.log('search data',data)
   if(!data){
     return this.displaystudents()
   }else{
@@ -186,7 +188,9 @@ clear(data:any){
 
   logout(){
     localStorage.removeItem('details');
-    localStorage.removeItem('Token');
+    sessionStorage.removeItem('Token');
     this.routing.navigate(['']);
   }
 }
+ 
+
