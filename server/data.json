@@ -29,6 +29,7 @@
       "name": "revanth",
       "mobile": "123",
       "pass": "rev"
+<<<<<<< HEAD
     },
     {
       "id": "lku3njmhk",
@@ -302,6 +303,8 @@
       "name": "sunny",
       "mobile": 9542269422,
       "password": "sunny"
+=======
+>>>>>>> b17fffcde4f9a676ac21dcff48abb2298d6ae062
     }
   ]
 }
